@@ -1,34 +1,28 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
+import logo from "../Assets/logo.jpg";
 const Navbar = () => {
   return (
-    <header class="header">
-      <nav class="navbar">
-        <a href="#" class="nav-branding">
-          Dev.{" "}
+    <header class="text-gray-600 body-font">
+      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+          <img
+            class="w-16 h-16 text-white p-2  rounded-full"
+            src={logo}
+            alt="logo img"
+          />
+          <span class="ml-3 text-xl">Tashfeen Khan</span>
         </a>
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="/" class="nav-link">
-              Home
-            </a>
-            <a href="/about" class="nav-link">
-              About
-            </a>
-            <a href="#" class="nav-link">
-              Project
-            </a>
-            <a href="#" class="nav-link">
-              Contact
-            </a>
-          </li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </nav>
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          <Link to="/" class="mr-5 hover:text-gray-900 font-bold text-2xl">
+            Home
+          </Link>
+          <Link to="/about" class="mr-5 hover:text-gray-900 font-bold text-2xl">
+            About
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 };
