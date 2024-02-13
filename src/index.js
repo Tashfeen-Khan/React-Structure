@@ -3,12 +3,18 @@ import ReactDOM from "react-dom/client";
 
 import reportWebVitals from "./reportWebVitals";
 import RouterComponent from "./Router/RouterComponent";
-
+import { Provider } from "react-redux";
+import { store } from "./Redux Store/Store";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+let persistor = persistStore(store);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <RouterComponent />
-  </React.StrictMode>
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <RouterComponent />
+    </PersistGate>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
